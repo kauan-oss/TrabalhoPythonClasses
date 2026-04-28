@@ -1,3 +1,6 @@
+from models.jogo import Jogo
+from services.jogo_service import carregar_jogos, salvar_jogos
+
 print("=== SISTEMA DE JOGOS ===")
 
 while True:
@@ -8,7 +11,17 @@ while True:
     opcao = input("Escolha: ")
 
     if opcao == "1":
-        # TODO: criar jogo
+        print("\nCadastro de Livro")
+
+        nome = input("\nNome: ")
+        genero = input("\nGenêro: ")
+        ano = input("\nAno: ")
+
+        jogo = Jogo(nome, genero, ano)
+        dados.append(jogo)
+        salvar_jogos(jogos)
+        print("\nJogo cadastrado!!")
+
         pass
 
     elif opcao == "2":

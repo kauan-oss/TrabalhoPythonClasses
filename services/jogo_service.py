@@ -12,10 +12,10 @@ def carregar_jogos():
                 item["genero"],
                 item["ano"],
             )
-            pass
+            jogos.append(jogo)
 
     except:
-        return []
+        return jogos
 
 
 def salvar_jogos(lista):

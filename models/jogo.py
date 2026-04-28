@@ -36,5 +36,8 @@ class Jogo:
 
     @staticmethod
     def de_dict(dados):
-       return "de_dict"
-        #pass
+    return Jogo(
+        dados["nome"],
+        dados["genero"],
+        dados["ano"]
+    )

@@ -18,7 +18,7 @@ while True:
         ano = input("\nAno: ")
 
         jogo = Jogo(nome, genero, ano)
-        dados.append(jogo)
+        jogos.append(jogo)
         salvar_jogos(jogos)
         print("\nJogo cadastrado!!")
 

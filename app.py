@@ -1,7 +1,11 @@
 from models.jogo import Jogo
 from services.jogo_service import carregar_jogos, salvar_jogos
 
-print("=== SISTEMA DE JOGOS ===")
+jogos = carregar_jogos()
+
+print("==================================")
+print("======== Sistema de Jogos ========")
+print("==================================")
 
 while True:
     print("\n1 - Adicionar jogo")
@@ -11,10 +15,10 @@ while True:
     opcao = input("Escolha: ")
 
     if opcao == "1":
-        print("\nCadastro de Livro")
+        print("\nCadastro de Jogo")
 
         nome = input("\nNome: ")
-        genero = input("\nGenêro: ")
+        genero = input("\nGênero: ")
         ano = input("\nAno: ")
 
         jogo = Jogo(nome, genero, ano)
@@ -22,11 +26,13 @@ while True:
         salvar_jogos(jogos)
         print("\nJogo cadastrado!!")
 
-        pass
-
     elif opcao == "2":
-        # TODO: listar jogos
-        pass
+        print("\nLista de Jogos: ")
+        if len(jogos) == 0:
+            print("Nenhum jogo encontrado!")
+        else:
+            for i, jogo in enumerate(jogos):
+                jogo.exibir()
 
     elif opcao == "3":
         break

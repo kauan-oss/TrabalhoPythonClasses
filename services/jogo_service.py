@@ -1,12 +1,13 @@
 import json
 from models.jogo import Jogo
 
-CAMINHO = "data/jogos.json"
+# CAMINHO = "data/jogos.json"
 
 def carregar_jogos():
+    jogos = []
     try:
-        with open(CAMINHO, "r", encoding="utf-8") as arquivo:
-            dados = json.load(arquivo)
+        with open("jogos.json", "r", encoding="utf-8") as arquivos:
+            dados = json.load(arquivos)
             jogo = Jogo(
                 item["nome"],
                 item["genero"],
@@ -15,10 +16,11 @@ def carregar_jogos():
             jogos.append(jogo)
 
     except:
-        return jogos
+        pass
+    return jogos
 
 
-def salvar_jogos(lista):
+def salvar_jogos(lista_jogos):
     dados = []
 
     for jogo in lista_jogos:

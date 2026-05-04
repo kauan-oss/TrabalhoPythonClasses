@@ -2,3 +2,31 @@ instale essa extensão para ver o README.MD no vscode
 
 
 https://marketplace.visualstudio.com/items?itemName=Readme-Preview-Extension.readme-preview-extension
+
+
+import json
+from json import JSONDecodeError
+# from models.jogo import Jogo
+
+CAMINHO = "data/jogos.json"
+
+def carregar_jogos():
+    jogos = []
+    try:
+        with open(CAMINHO, "r", encoding="utf-8") as arquivo:
+            dados = json.load(arquivo)
+            for item in dados:
+                jogo = Jogo.de_dict(item)
+                jogos.append(jogo)
+    except (FileNotFoundError, JSONDecodeError):
+        pass
+    return jogos
+
+def salvar_jogos(lista_jogos):
+    dados = []
+
+    for jogo in lista_jogos:
+        dados.append(jogo.para_dict())
+    with open("jogos.json", "w") as arquivo:
+        json.dump(dados, arquivo, indent = 4)
+    pass

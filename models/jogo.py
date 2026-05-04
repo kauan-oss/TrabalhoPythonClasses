@@ -5,39 +5,42 @@ class Jogo:
         self.__ano = ano
 
     @property
-    def genero (self):
-       return self.__genero
+    def nome(self):
+        return self.__nome
 
     @property
-    def ano (self):
-       return self.__ano
+    def genero(self):
+        return self.__genero
 
     @property
-    def nome (self):
-       return self.__nome
+    def ano(self):
+        return self.__ano
 
-    @ano.setter
-    def ano (self, novo_nome):
+    @nome.setter
+    def nome(self, novo_nome):
         if len(novo_nome) < 2:
-            print("Título inválido")
+            print("Titulo invalido")
         else:
             self.__nome = novo_nome
+
+    @ano.setter
+    def ano(self, novo_ano):
+        self.__ano = novo_ano
 
     def exibir(self):
         print(f"{self.__nome} - {self.__genero} ({self.__ano})")
 
     def para_dict(self):
         return {
-            "Ano": self.__nome,
-            "Genero": self.__genero,
-            "Ano": self.__ano
+            "nome": self.__nome,
+            "genero": self.__genero,
+            "ano": self.__ano,
         }
-        pass
 
     @staticmethod
     def de_dict(dados):
-    return Jogo(
-        dados["nome"],
-        dados["genero"],
-        dados["ano"]
-    )
+        return Jogo(
+            dados["nome"],
+            dados["genero"],
+            dados["ano"],
+        )

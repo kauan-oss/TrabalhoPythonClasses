@@ -1,9 +1,10 @@
 ## 🧩 MISSÃO:
 
 > “Vocês precisam fazer o sistema funcionar.”
-
+CAMINHO = "data/jogos.json"
 ----------
 
+CAMINHO = "data/jogos.json"
 ## 🪜 PASSOS GUIADOS
 
 ### 1. Completar a classe
